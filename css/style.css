@@ -1,0 +1,353 @@
+/* 1. Reset e Caligrafia Moderna */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif; /* Isso mata a fonte feia */
+}
+
+body {
+  /* Essa linha coloca o fundo escuro e a sua imagem misturados */
+  background:
+    linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.95)),
+    url("../assets/bg-tech-neon.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #c9d1d9;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* 2. Banner do Topo */
+.banner-oferta {
+  background: linear-gradient(90deg, #1f6f30, #2ea043);
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 3. Container Principal */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+h1 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* 4. Textos da Seção "Sobre Mim" */
+.sobre-mim p {
+  font-size: 1.1rem;
+  color: #8b949e; /* Cinza elegante para leitura não cansar */
+}
+
+/* 5. Grid dos Cards (Lado a lado no PC, um embaixo do outro no celular) */
+.vitrine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* 6. Os Cards (O visual Slim e Glass) */
+.card-produto {
+  /* Fundo semi-transparente */
+  background: rgba(22, 27, 34, 0.4);
+  /* Efeito de embaçar o que tá atrás (o pulo do gato) */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  /* Sombras pra dar profundidade */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  /* Transição suave */
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  /* Necessário para o efeito 3D (Tilt) não quebrar */
+  transform-style: preserve-3d;
+}
+
+/* Brilho verde ao passar o mouse */
+.card-produto:hover {
+  border-color: rgba(46, 160, 67, 0.5);
+  box-shadow: 0 8px 32px rgba(46, 160, 67, 0.2);
+}
+
+/* Fazendo o conteúdo pular pra fora no 3D */
+.card-produto .info,
+.card-produto img,
+.tag-premium {
+  transform: translateZ(30px);
+}
+
+.card-produto img {
+  width: 100%;
+  height: 220px; /* Trava a altura */
+  object-fit: cover; /* Corta bonito sem esticar */
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 8. Tag Premium Flutuante */
+.tag-premium {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #2ea043;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 9. Textos de dentro do Card */
+.info {
+  padding: 25px;
+}
+
+.info h2 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.info p {
+  font-size: 0.95rem;
+  color: #8b949e;
+  margin-bottom: 20px;
+}
+
+.preco {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2ea043;
+}
+
+.escassez {
+  font-size: 0.85rem;
+  color: #ff7b72;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+/* 10. Botão Slim Premium */
+.btn-zap {
+  width: 100%;
+  background: transparent;
+  color: #2ea043;
+  border: 1px solid #2ea043;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-zap:hover {
+  background: #2ea043;
+  color: #ffffff;
+}
+
+/* 11. Rodapé */
+.rodape {
+  background: #010409;
+  border-top: 1px solid #30363d;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.social-links a {
+  color: #2ea043;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+}
+/* =========================================
+   CABEÇALHO FLUTUANTE (GLASSMORPHISM)
+========================================= */
+.navbar-glass {
+    position: fixed; /* Faz a barra descer com a tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(13, 17, 23, 0.7); /* Fundo de vidro escuro */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Bolinha verde piscando estilo "Online/Operante" */
+.ponto-verde {
+    width: 10px;
+    height: 10px;
+    background-color: #2ea043;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2ea043;
+    animation: piscar 2s infinite;
+}
+
+@keyframes piscar {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.tech-tag {
+    font-size: 0.7rem;
+    color: #2ea043;
+    border: 1px solid #2ea043;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+/* Botão do Cabeçalho com pulso magnético */
+.btn-nav {
+    background: #2ea043;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(46, 160, 67, 0.3);
+}
+
+.btn-nav:hover {
+    background: #3fb950;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 160, 67, 0.5);
+}
+
+/* Ajuste no container para não sumir debaixo do header */
+.container {
+    padding-top: 100px; 
+}
+
+/* =========================================
+   RODAPÉ PREMIUM
+========================================= */
+.rodape-premium {
+    background: linear-gradient(to top, #010409, transparent);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 20px 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-logo {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.footer-slogan {
+    color: #8b949e;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #c9d1d9;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #2ea043;
+    box-shadow: 0 0 15px rgba(46, 160, 67, 0.2);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #6e7681;
+    font-size: 0.85rem;
+}
+
+.tech-stack {
+    margin-top: 5px;
+    color: #2ea043;
+    font-style: italic;
+}
+/* =========================================
+   AJUSTES PARA CELULAR (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+    /* Diminui o título principal para caber na tela sem quebrar a palavra */
+    h1#titulo-maquina {
+        font-size: 1.8rem !important;
+        min-height: 70px; /* Espaço extra caso o texto caia para a linha de baixo */
+    }
+
+    /* Ajusta a barra flutuante: coloca o logo em cima e o botão embaixo */
+    .navbar-glass {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 5%;
+    }
+
+    /* Dá mais espaço no topo porque a barra flutuante ficou mais alta */
+    .container {
+        padding-top: 140px; 
+    }
+
+    /* Deixa os textos da seção "Sobre mim" mais confortáveis de ler */
+    .sobre-mim p {
+        font-size: 1rem;
+        text-align: left; /* No celular, texto alinhado à esquerda facilita a leitura */
+    }
+    
+    /* Ajusta o rodapé */
+    .rodape-premium {
+        padding: 40px 15px 20px;
+    }
+}
